@@ -12,6 +12,10 @@ app.use(express.urlencoded({ extended: true }));
 // Melayani file statis
 app.use(express.static(path.join(__dirname, 'public')));
 
+app.get('/auth/login', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public', 'login.html'));
+});
+
 // Endpoint untuk login
 app.post('/login', (req, res) => {
   const { username, password } = req.body;
